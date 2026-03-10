@@ -1,0 +1,8 @@
+{
+  "name": "Enchanted Tools PWA",
+  "short_name": "Enchanted",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000"
+}

@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+README.md
 
-## Getting Started
+Enchanted Tools – Visitor PWA
+Présentation
 
-First, run the development server:
+Ce projet est une Progressive Web Application (PWA) conçue pour les visiteurs de l'expérience Enchanted Tools.
 
-```bash
+L'application permet aux visiteurs de découvrir l'expérience interactive grâce à plusieurs écrans :
+
+saisie d'un code session
+
+écran de chargement
+
+introduction avec le personnage Miroka
+
+exploration du plan de l'espace
+
+découverte des modules interactifs
+
+L'objectif est de proposer une expérience numérique immersive, simple et ludique pour accompagner les visiteurs dans leur parcours.
+
+Stack technique
+
+Le projet utilise les technologies suivantes :
+
+Next.js
+React
+Tailwind CSS
+Vercel
+
+Lancer le projet en local
+
+Pour lancer le projet localement :
+
+Installer les dépendances :
+
+npm install
+
+Puis lancer le serveur :
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ensuite ouvrir dans le navigateur :
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+http://localhost:3000
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Pages principales
 
-## Learn More
+Les pages principales du prototype PWA sont :
 
-To learn more about Next.js, take a look at the following resources:
+/session-code
+/loading-screen
+/intro
+/space-map
+/modules
+/admin
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Structure du projet
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+app/
+session-code/
+loading-screen/
+intro/
+space-map/
+modules/
+admin/
 
-## Deploy on Vercel
+public/
+images/
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+README.md
+installation_guide.md
+deployment_guide.md
+admin_guide.md
+data_examples.md
+technical_documentation.md
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Objectif
+
+Cette PWA sert de prototype fonctionnel permettant de démontrer :
+
+la navigation visiteur
+
+l'expérience interactive
+
+la faisabilité technique du projet

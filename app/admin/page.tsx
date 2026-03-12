@@ -1,30 +1,27 @@
 export default function AdminPage() {
   return (
-    <main className="min-h-screen bg-gray-50 text-black">
-      <section className="mx-auto max-w-6xl px-6 py-16">
+    <main className="min-h-screen bg-[#111111] text-white px-6 py-12">
+      <div className="mx-auto max-w-4xl">
         <h1 className="text-4xl font-bold">Admin Dashboard</h1>
-        <p className="mt-4 text-gray-600">
-          Tableau de bord simple pour illustrer la gestion du contenu,
-          l’administration et la supervision fonctionnelle de la plateforme.
+        <p className="mt-4 text-white/75">
+          Interface simple de gestion du prototype PWA.
         </p>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          <div className="rounded-2xl bg-white p-6 shadow-sm border">
-            <h2 className="text-lg font-semibold">Utilisateurs</h2>
-            <p className="mt-2 text-gray-600">128 comptes simulés</p>
+        <div className="mt-10 grid gap-4 md:grid-cols-3">
+          <div className="rounded-2xl border border-white/15 p-5">
+            <h2 className="text-xl font-semibold">Session codes</h2>
+            <p className="mt-2 text-white/70">1234, 5678, 9012</p>
           </div>
-
-          <div className="rounded-2xl bg-white p-6 shadow-sm border">
-            <h2 className="text-lg font-semibold">Interactions</h2>
-            <p className="mt-2 text-gray-600">342 actions enregistrées</p>
+          <div className="rounded-2xl border border-white/15 p-5">
+            <h2 className="text-xl font-semibold">Modules</h2>
+            <p className="mt-2 text-white/70">Exploration, Story, Intro</p>
           </div>
-
-          <div className="rounded-2xl bg-white p-6 shadow-sm border">
-            <h2 className="text-lg font-semibold">Contenus</h2>
-            <p className="mt-2 text-gray-600">12 éléments administrables</p>
+          <div className="rounded-2xl border border-white/15 p-5">
+            <h2 className="text-xl font-semibold">Zones</h2>
+            <p className="mt-2 text-white/70">Accueil, Plan, Exit</p>
           </div>
         </div>
-      </section>
+      </div>
     </main>
   );
 }

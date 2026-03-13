@@ -1,7 +1,46 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function SessionCodePage() {
+  const [code, setCode] = useState<string[]>(["", "", "", ""]);
+  const router = useRouter();
+
+  const addDigit = (digit: string) => {
+    const next = [...code];
+    const emptyIndex = next.findIndex((item) => item === "");
+
+    if (emptyIndex !== -1) {
+      next[emptyIndex] = digit;
+      setCode(next);
+
+      const filled = next.every((item) => item !== "");
+      if (filled) {
+        setTimeout(() => {
+          router.push("/loading-screen");
+        }, 400);
+      }
+    }
+  };
+
+  const removeDigit = () => {
+    const next = [...code];
+    const lastFilledIndex = [...next].reverse().findIndex((item) => item !== "");
+
+    if (lastFilledIndex !== -1) {
+      const realIndex = next.length - 1 - lastFilledIndex;
+      next[realIndex] = "";
+      setCode(next);
+    }
+  };
+
+  const resetCode = () => {
+    setCode(["", "", "", ""]);
+  };
+
   return (
     <main className="min-h-screen bg-[#1E1E1E] flex items-center justify-center px-4 py-10">
       <div
@@ -52,19 +91,25 @@ export default function SessionCodePage() {
         </div>
 
         <div className="absolute top-[270px] left-1/2 -translate-x-1/2 z-10 flex gap-[8px]">
-          {[0, 0, 0, 0].map((digit, index) => (
+          {code.map((digit, index) => (
             <div
               key={index}
               className="w-[42px] h-[42px] rounded-[10px] bg-[#F2F4FF] border border-white/80 flex items-center justify-center shadow-[0_0_10px_rgba(255,255,255,0.35)]"
             >
-              <span className="text-[#888EA3] text-[24px] font-bold">{digit}</span>
+              <span className="text-[#888EA3] text-[24px] font-bold">
+                {digit || "0"}
+              </span>
             </div>
           ))}
         </div>
 
-        <p className="absolute top-[322px] left-1/2 -translate-x-1/2 text-[7px] text-white/80 z-10">
+        <button
+          type="button"
+          onClick={resetCode}
+          className="absolute top-[322px] left-1/2 -translate-x-1/2 text-[7px] text-white/80 z-10 underline"
+        >
           Je ne trouve pas mon code de session
-        </p>
+        </button>
 
         <div className="absolute left-1/2 -translate-x-1/2 bottom-[58px] z-10 w-[235px]">
           <div className="grid grid-cols-3 gap-[4px]">
@@ -73,6 +118,7 @@ export default function SessionCodePage() {
                 key={num}
                 className="h-[28px] rounded-[4px] bg-white/10 border border-white/10 text-white text-[13px] hover:bg-white/15 transition"
                 type="button"
+                onClick={() => addDigit(String(num))}
               >
                 {num}
               </button>
@@ -83,22 +129,31 @@ export default function SessionCodePage() {
             <button
               className="h-[28px] rounded-[4px] bg-white/10 border border-white/10 text-white text-[13px] hover:bg-white/15 transition"
               type="button"
+              onClick={() => addDigit("0")}
             >
               0
             </button>
 
-            <Link
-              href="/loading-screen"
-              className="h-[28px] rounded-[4px] bg-white/10 border border-white/10 text-white text-[13px] hover:bg-white/15 transition flex items-center justify-center"
+            <button
+              className="h-[28px] rounded-[4px] bg-white/10 border border-white/10 text-white text-[13px] hover:bg-white/15 transition"
+              type="button"
+              onClick={removeDigit}
             >
               ⌫
-            </Link>
+            </button>
           </div>
         </div>
 
         <div className="absolute bottom-[16px] left-0 w-full text-center text-[7px] text-white/85 z-10">
           Expérience propulsée par ✦ Enchanted Tools
         </div>
+
+        <Link
+          href="/loading-screen"
+          className="absolute top-4 left-4 z-20 rounded-full bg-white/15 px-3 py-1 text-[10px] text-white"
+        >
+          Skip
+        </Link>
       </div>
     </main>
   );
